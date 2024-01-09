@@ -1,7 +1,21 @@
-# Vue 3 + Vite
+# 高速磁浮蓄电池状态诊断模块
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 配置
 
-## Recommended IDE Setup
+开发调试 或打包 之前，请先新建 /.env.local 文件，然后配置如下参数：
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+```
+VITE_WEBSOCKET_URL=ws://x.x.x.x:port
+```
+
+## 打包
+
+运行 `npm run build` 或 `yarn build` 或 `pnpm build`，生成 dist 目录
+
+## 部署运行
+
+将 dist 目录拷贝到服务器上，然后运行 pm2 相关的命令，如：
+
+```bash
+pm2 serve dist --name aircondition-status-diagnosis --port 12000
+```

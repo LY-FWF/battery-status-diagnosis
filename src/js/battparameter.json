@@ -1,0 +1,29 @@
+{
+   "battery1_440":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   },
+   
+   "battery2_440":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   },
+   
+   "battery3_440":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   },
+   "battery4_440":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   },
+  
+   "battery1_24":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   },
+   "battery2_24":{"max_volt":0,"min_volt":0,"max_temp":0,"min_temp":0,"SOC":0,"total_volt":0,"current":0,"fan_fault":0,
+   "overdischarge_alarm":0,"overcharge_alarm":0,"heating_state":0,"relay_status":0,"relay_fault":0,"comm_fault":0,
+   "volt_acquisition_fault":0,"low_temp_alarm":0,"high_temp_alarm":0,"C_overdischarge_alarm":0,"C_overcharge_alarm":0,"temp_diff":0
+   }
+}
