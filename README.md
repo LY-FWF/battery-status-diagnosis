@@ -17,5 +17,5 @@ VITE_WEBSOCKET_URL=ws://x.x.x.x:port
 将 dist 目录拷贝到服务器上，然后运行 pm2 相关的命令，如：
 
 ```bash
-pm2 serve dist --name aircondition-status-diagnosis --port 12000
+pm2 serve dist --name battery-status-diagnosis --port 12000
 ```
