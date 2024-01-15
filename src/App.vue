@@ -1,5 +1,5 @@
 <script>
-import { onMounted, reactive, onUnmounted, ref, defineComponent, inject} from 'vue';//组件导入
+import { onMounted, reactive, onUnmounted, ref, defineComponent, inject } from 'vue';//组件导入
 import function3 from "./js/function1.js"//导入进制转换代码
 import getDate from './js/time.js'//导入时间函数
 import parameter from './js/battparameter'//导入参数
@@ -102,8 +102,6 @@ export default defineComponent({
       var month = timeObj.getMonth();
       var date = timeObj.getDate();
       var time = timeObj.toTimeString().split(" ")[0];
-      //var rex = new RegExp(/:/g);
-      // str = year+"-"+month+"-"+date+" "+time.replace(rex,"-");
       str = time;
       console.log("------当前日期：" + str);
       return str;
@@ -121,19 +119,9 @@ export default defineComponent({
       } else {
         return '#00657F';
       };
-    }//定义方法
-    const colorSig2 = (sig) => {
-      if (sig) {
-        return "#ee1402";
-      } else {
-        return '#00657F';
-      };
     }
     const formatDate = () => {
       var date = new Date()// 时间戳为10位需*1000，时间戳为13位的话不需乘1000
-      // var year = date.getFullYear()
-      // var month = ('0' + (date.getMonth() + 1)).slice(-2)
-      // var sdate = ('0' + date.getDate()).slice(-2)
       var hour = ('0' + date.getHours()).slice(-2)
       var minute = ('0' + date.getMinutes()).slice(-2)
       var second = ('0' + date.getSeconds()).slice(-2)
@@ -148,14 +136,12 @@ export default defineComponent({
       setInterval(() => {
         Timedata.nowTime = getDate().nowTime;
         Timedata.nowWeek = getDate().nowWeek;
-        //console.log(Timedata)
       }, 1000)
     };
     onMounted(() => {
       flag = formatDate()
-      // webData()
       currentTime()
-      
+
       worker.onmessage = (event) => {
         const message = event.data;
         // 在这里处理接收到的消息
@@ -271,9 +257,6 @@ export default defineComponent({
       x_Batt1_24,
       x_Batt2_24,
       x_array1,
-      // x_array2,
-      // x_array3,
-      // x_array4,
       colorSig
     }
   }
@@ -281,8 +264,6 @@ export default defineComponent({
 </script>
 
 <template>
-  <!-- <div class="backG">
-    </div> -->
   <svg class="block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
     height="100%" preserveAspectRatio="none" viewBox="0 0 1920 1080">
     <defs>
@@ -1358,396 +1339,398 @@ export default defineComponent({
           </g>
           <g id="编组-22备份-10"
             transform="translate(780.341975, 438.671934) scale(-1, 1) translate(-780.341975, -438.671934) translate(665.546114, 418.111176)">
-          <path id="直线-5备份"
-            d="M64.323487,-5.67807612 L78.2739565,1.29993045 L64.2251417,8.07776026 L64.267,2.175 L46.1707173,2.0460568 L45.1951235,2.03908193 L45.2090732,0.087894215 L46.1846671,0.0948690793 L64.281,0.224 L64.323487,-5.67807612 Z"
-            fill="#028C13" fill-rule="nonzero" />
-          <path id="直线-5备份-7"
-            d="M159.346679,16.3579681 L169.390985,21.076541 L159.436156,25.9810682 L159.396,21.731 L136.643065,21.9434108 L136.080738,21.9486394 L136.070281,20.8239848 L136.632608,20.8187562 L159.386,20.606 L159.346679,16.3579681 Z"
-            fill="#749DC0" fill-rule="nonzero" />
-          <g id="编组" transform="translate(169.103358, 5.246155)">
-            <g id="Fill-692备份"
-              transform="translate(30.244183, 15.618531) scale(-1, 1) translate(-30.244183, -15.618531) ">
-              <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-                fill="#00A1FF"
-                points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
-              <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-                letter-spacing="1.56099009" fill="#FFFFFF">
-                <tspan x="13.0121535" y="21.9252076">车窗</tspan>
-              </text>
+            <path id="直线-5备份"
+              d="M64.323487,-5.67807612 L78.2739565,1.29993045 L64.2251417,8.07776026 L64.267,2.175 L46.1707173,2.0460568 L45.1951235,2.03908193 L45.2090732,0.087894215 L46.1846671,0.0948690793 L64.281,0.224 L64.323487,-5.67807612 Z"
+              fill="#028C13" fill-rule="nonzero" />
+            <path id="直线-5备份-7"
+              d="M159.346679,16.3579681 L169.390985,21.076541 L159.436156,25.9810682 L159.396,21.731 L136.643065,21.9434108 L136.080738,21.9486394 L136.070281,20.8239848 L136.632608,20.8187562 L159.386,20.606 L159.346679,16.3579681 Z"
+              fill="#749DC0" fill-rule="nonzero" />
+            <g id="编组" transform="translate(169.103358, 5.246155)">
+              <g id="Fill-692备份"
+                transform="translate(30.244183, 15.618531) scale(-1, 1) translate(-30.244183, -15.618531) ">
+                <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+                  fill="#00A1FF"
+                  points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
+                <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+                  letter-spacing="1.56099009" fill="#FFFFFF">
+                  <tspan x="13.0121535" y="21.9252076">车窗</tspan>
+                </text>
+              </g>
             </g>
+            <path id="直线-5备份-2"
+              d="M64.216118,7.58506288 L78.2739484,14.3441737 L64.3327859,21.3407561 L64.282,15.438 L32.0041484,15.7122617 L31.0285647,15.720536 L31.012016,13.7693686 L31.9875997,13.7610943 L64.266,13.486 L64.216118,7.58506288 Z"
+              fill="#2590A9" fill-rule="nonzero" />
+            <path id="直线-5备份-3"
+              d="M64.2717662,20.5333269 L78.2739764,27.4069203 L64.276188,34.2895142 L64.274,28.386 L16.6325513,28.4023536 L15.6569325,28.4026672 L15.6563053,26.4514297 L16.631924,26.4511161 L64.273,26.435 L64.2717662,20.5333269 Z"
+              fill="#0164AA" fill-rule="nonzero" />
+            <path id="直线-5备份-4"
+              d="M63.6827427,33.2386977 L77.6827427,40.1167917 L63.6827427,46.9948856 L63.682,41.092 L-0.888835684,41.0924104 L-0.888835684,39.1411729 L63.682,39.141 L63.6827427,33.2386977 Z"
+              fill="#749DC0" fill-rule="nonzero" />
+          </g>
+          <path id="直线-5备份-7"
+            d="M752.805872,163.92582 L762.756855,168.838147 L752.708854,173.548847 L752.751,169.299 L728.44323,169.054582 L727.880907,169.048913 L727.892246,167.924267 L728.454569,167.929936 L752.762,168.174 L752.805872,163.92582 Z"
+            transform="translate(744.974450, 168.925533) scale(-1, 1) translate(-744.974450, -168.925533) " fill="#749DC0"
+            fill-rule="nonzero" />
+          <path id="直线-5备份-27"
+            d="M752.805872,318.92582 L762.756855,323.838147 L752.708854,328.548847 L752.751,324.299 L728.44323,324.054582 L727.880907,324.048913 L727.892246,322.924267 L728.454569,322.929936 L752.762,323.174 L752.805872,318.92582 Z"
+            transform="translate(744.974450, 323.925533) scale(-1, 1) translate(-744.974450, -323.925533) " fill="#749DC0"
+            fill-rule="nonzero" />
+          <g id="Fill-692备份" transform="translate(667.497351, 151.973153)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="-1.42108547e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 -1.42108547e-14 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">插座</tspan>
+            </text>
+          </g>
+          <g id="Fill-692备份" transform="translate(667.497351, 306.973153)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="-1.42108547e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 -1.42108547e-14 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">插座</tspan>
+            </text>
           </g>
           <path id="直线-5备份-2"
-            d="M64.216118,7.58506288 L78.2739484,14.3441737 L64.3327859,21.3407561 L64.282,15.438 L32.0041484,15.7122617 L31.0285647,15.720536 L31.012016,13.7693686 L31.9875997,13.7610943 L64.266,13.486 L64.216118,7.58506288 Z"
-            fill="#2590A9" fill-rule="nonzero" />
-          <path id="直线-5备份-3"
-            d="M64.2717662,20.5333269 L78.2739764,27.4069203 L64.276188,34.2895142 L64.274,28.386 L16.6325513,28.4023536 L15.6569325,28.4026672 L15.6563053,26.4514297 L16.631924,26.4511161 L64.273,26.435 L64.2717662,20.5333269 Z"
-            fill="#0164AA" fill-rule="nonzero" />
-          <path id="直线-5备份-4"
-            d="M63.6827427,33.2386977 L77.6827427,40.1167917 L63.6827427,46.9948856 L63.682,41.092 L-0.888835684,41.0924104 L-0.888835684,39.1411729 L63.682,39.141 L63.6827427,33.2386977 Z"
-            fill="#749DC0" fill-rule="nonzero" />
-        </g>
-        <path id="直线-5备份-7"
-          d="M752.805872,163.92582 L762.756855,168.838147 L752.708854,173.548847 L752.751,169.299 L728.44323,169.054582 L727.880907,169.048913 L727.892246,167.924267 L728.454569,167.929936 L752.762,168.174 L752.805872,163.92582 Z"
-          transform="translate(744.974450, 168.925533) scale(-1, 1) translate(-744.974450, -168.925533) " fill="#749DC0"
-          fill-rule="nonzero" />
-        <path id="直线-5备份-27"
-          d="M752.805872,318.92582 L762.756855,323.838147 L752.708854,328.548847 L752.751,324.299 L728.44323,324.054582 L727.880907,324.048913 L727.892246,322.924267 L728.454569,322.929936 L752.762,323.174 L752.805872,318.92582 Z"
-          transform="translate(744.974450, 323.925533) scale(-1, 1) translate(-744.974450, -323.925533) " fill="#749DC0"
-          fill-rule="nonzero" />
-        <g id="Fill-692备份" transform="translate(667.497351, 151.973153)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="-1.42108547e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 -1.42108547e-14 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">插座</tspan>
-          </text>
-        </g>
-        <g id="Fill-692备份" transform="translate(667.497351, 306.973153)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="-1.42108547e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 -1.42108547e-14 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">插座</tspan>
-          </text>
-        </g>
-        <path id="直线-5备份-2"
-          d="M856.44543,161.5647 L870.419576,168.495172 L856.393917,175.320792 L856.415,169.418 L817.438044,169.272395 L816.462432,169.268742 L816.469738,167.317518 L817.44535,167.321171 L856.423,167.466 L856.44543,161.5647 Z"
-          transform="translate(843.570902, 168.592663) scale(-1, 1) translate(-843.570902, -168.592663) " fill="#2590A9"
-          fill-rule="nonzero" />
-        <path id="直线-5备份-28"
-          d="M856.44543,316.5647 L870.419576,323.495172 L856.393917,330.320792 L856.415,324.418 L817.438044,324.272395 L816.462432,324.268742 L816.469738,322.317518 L817.44535,322.321171 L856.423,322.466 L856.44543,316.5647 Z"
-          transform="translate(843.570902, 323.592663) scale(-1, 1) translate(-843.570902, -323.592663) " fill="#2590A9"
-          fill-rule="nonzero" />
-        <g id="Fill-692备份-2" transform="translate(500.622126, 91.950666)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">定位</tspan>
-          </text>
-        </g>
-        <g id="Fill-692备份-2" transform="translate(500.622126, 358.656435)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">定位</tspan>
-          </text>
-        </g>
-        <g id="Fill-692备份-3" transform="translate(406.182153, 91.950666)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="2.84217094e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 2.84217094e-14 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">烟火</tspan>
-          </text>
-        </g>
-        <g id="Fill-692备份-5" transform="translate(402.425965, 358.656435)">
-          <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
-            fill="#00A1FF"
-            points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
-          <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
-            letter-spacing="1.56099009" fill="#FFFFFF">
-            <tspan x="13.0121535" y="21.9252076">照明</tspan>
-          </text>
-        </g>
-        <g id="编组-22备份-4"
-          transform="translate(899.456480, 116.059720) scale(-1, 1) translate(-899.456480, -116.059720) translate(882.383151, 115.083562)"
-          fill="#096FAE" fill-rule="nonzero">
-          <path id="直线-5备份-3"
-            d="M20.5894296,-5.64660942 L34.5894296,1.23148454 L20.5894296,8.1095785 L20.589,2.207 L-0.808468001,2.20710333 L-0.808468001,0.255865748 L20.589,0.255 L20.5894296,-5.64660942 Z" />
-        </g>
-        <g id="编组-22备份-7"
-          transform="translate(906.285811, 359.123116) scale(-1, 1) translate(-906.285811, -359.123116) translate(895.066195, 358.146958)"
-          fill="#749DC0" fill-rule="nonzero">
-          <path id="直线-5备份-3"
-            d="M8.56182701,-5.80168196 L22.4799431,1.24063445 L8.39999684,7.95355403 L8.469,2.051 L-0.011477348,1.9517095 L-0.987028627,1.94023215 L-0.964073932,-0.0108704095 L0.011477348,0.000606938474 L8.491,0.1 L8.56182701,-5.80168196 Z" />
-        </g>
-        <text id="N1电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="1.6" fill="#749DC0">
-          <tspan x="116.940945" y="32.2090827">N1电网</tspan>
-        </text>
-        <text id="N3电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="1.6" fill="#749DC0">
-          <tspan x="1007.94095" y="32.2090827">N3电网</tspan>
-        </text>
-        <text id="N4电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="1.6" fill="#749DC0">
-          <tspan x="1007.94095" y="280.209083">N4电网</tspan>
-        </text>
-        <text id="N2电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="1.6" fill="#749DC0">
-          <tspan x="116.940945" y="285.209083">N2电网</tspan>
-        </text>
-        <g id="编组-11" transform="translate(1025.433498, 37.992259)">
-          <path d="M17.5665025,187.390254 L166.79803,187.390254 L166.79803,0 L17.5665025,0 L17.5665025,187.390254 Z"
-            id="Fill-5" stroke-opacity="0.498381501" stroke="#FFFFFF" fill-opacity="0.1" fill="#00A1FF"
-            stroke-dasharray="4" />
-          <g id="编组-14" transform="translate(24.394089, 8.785424)">
-            <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
-            <text id="16" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="5" y="20">16</tspan>
-            </text>
-            <text id="14" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="40" y="20">14</tspan>
-            </text>
-            <text id="9" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="81.1491812" y="20">9</tspan>
-            </text>
-            <text id="23" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="111.298362" y="20">23</tspan>
+            d="M856.44543,161.5647 L870.419576,168.495172 L856.393917,175.320792 L856.415,169.418 L817.438044,169.272395 L816.462432,169.268742 L816.469738,167.317518 L817.44535,167.321171 L856.423,167.466 L856.44543,161.5647 Z"
+            transform="translate(843.570902, 168.592663) scale(-1, 1) translate(-843.570902, -168.592663) " fill="#2590A9"
+            fill-rule="nonzero" />
+          <path id="直线-5备份-28"
+            d="M856.44543,316.5647 L870.419576,323.495172 L856.393917,330.320792 L856.415,324.418 L817.438044,324.272395 L816.462432,324.268742 L816.469738,322.317518 L817.44535,322.321171 L856.423,322.466 L856.44543,316.5647 Z"
+            transform="translate(843.570902, 323.592663) scale(-1, 1) translate(-843.570902, -323.592663) " fill="#2590A9"
+            fill-rule="nonzero" />
+          <g id="Fill-692备份-2" transform="translate(500.622126, 91.950666)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">定位</tspan>
             </text>
           </g>
-          <g id="编组-14备份" transform="translate(24.394089, 129.829043)">
-            <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
-            <text id="30" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="5.41658907" y="20.9589513">30</tspan>
-            </text>
-            <text id="2" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="45.8683931" y="20.9589513">2</tspan>
-            </text>
-            <text id="7" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="80.9816936" y="20.9589513">7</tspan>
-            </text>
-            <text id="25" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="111.244175" y="20.9589513">25</tspan>
+          <g id="Fill-692备份-2" transform="translate(500.622126, 358.656435)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">定位</tspan>
             </text>
           </g>
-          <text id="HS" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-            letter-spacing="0.803200028" fill="#FFFFFF">
-            <tspan x="78.0394089" y="179.145925">HS</tspan>
+          <g id="Fill-692备份-3" transform="translate(406.182153, 91.950666)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="2.84217094e-14 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 2.84217094e-14 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">烟火</tspan>
+            </text>
+          </g>
+          <g id="Fill-692备份-5" transform="translate(402.425965, 358.656435)">
+            <polygon id="Fill-692" stroke-opacity="0.4" stroke="#FFFFFF" stroke-width="0.975618793" fill-opacity="0.2"
+              fill="#00A1FF"
+              points="3.55271368e-15 29.2771946 60.4883651 29.2771946 60.4883651 1.95986839 3.55271368e-15 1.95986839" />
+            <text id="旅服" font-family="PingFangSC-Regular, PingFang SC" font-size="15.6099007" font-weight="normal"
+              letter-spacing="1.56099009" fill="#FFFFFF">
+              <tspan x="13.0121535" y="21.9252076">照明</tspan>
+            </text>
+          </g>
+          <g id="编组-22备份-4"
+            transform="translate(899.456480, 116.059720) scale(-1, 1) translate(-899.456480, -116.059720) translate(882.383151, 115.083562)"
+            fill="#096FAE" fill-rule="nonzero">
+            <path id="直线-5备份-3"
+              d="M20.5894296,-5.64660942 L34.5894296,1.23148454 L20.5894296,8.1095785 L20.589,2.207 L-0.808468001,2.20710333 L-0.808468001,0.255865748 L20.589,0.255 L20.5894296,-5.64660942 Z" />
+          </g>
+          <g id="编组-22备份-7"
+            transform="translate(906.285811, 359.123116) scale(-1, 1) translate(-906.285811, -359.123116) translate(895.066195, 358.146958)"
+            fill="#749DC0" fill-rule="nonzero">
+            <path id="直线-5备份-3"
+              d="M8.56182701,-5.80168196 L22.4799431,1.24063445 L8.39999684,7.95355403 L8.469,2.051 L-0.011477348,1.9517095 L-0.987028627,1.94023215 L-0.964073932,-0.0108704095 L0.011477348,0.000606938474 L8.491,0.1 L8.56182701,-5.80168196 Z" />
+          </g>
+          <text id="N1电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="1.6" fill="#749DC0">
+            <tspan x="116.940945" y="32.2090827">N1电网</tspan>
           </text>
-          <ellipse id="椭圆形备份-4" fill="#749DC0" cx="39.884931" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-5" fill="#749DC0" cx="74.9982315" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-6" fill="#749DC0" cx="109.136163" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-7" fill="#749DC0" cx="145.224833" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <line x1="39.9359692" y1="37.4906536" x2="39.9359692" y2="129.95236" id="直线-2备份-3" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="75.0492697" y1="37.4906536" x2="75.0492697" y2="129.95236" id="直线-2备份-4" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="109.187201" y1="37.4906536" x2="109.187201" y2="129.95236" id="直线-2备份-5" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="145.275871" y1="37.4906536" x2="145.275871" y2="129.95236" id="直线-2备份-6" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <path id="直线-3"
-            d="M8.56650246,76.060953 L8.566,80.012 L148.554312,80.0121906 L148.554312,80.9878094 L8.566,80.987 L8.56650246,84.939047 L-0.433497537,80.5 L8.56650246,76.060953 Z"
-            fill="#749DC0" fill-rule="nonzero" />
-        </g>
-        <g id="编组-11" transform="translate(1025.433498, 286.992259)">
-          <path d="M17.5665025,187.390254 L166.79803,187.390254 L166.79803,0 L17.5665025,0 L17.5665025,187.390254 Z"
-            id="Fill-5" stroke-opacity="0.498381501" stroke="#FFFFFF" fill-opacity="0.1" fill="#00A1FF"
-            stroke-dasharray="4" />
-          <g id="编组-14" transform="translate(24.394089, 8.785424)">
-            <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
-            <text id="28" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="5" y="20">28</tspan>
-            </text>
-            <text id="10" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="40" y="20">10</tspan>
-            </text>
-            <text id="21" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="111.298362" y="20">21</tspan>
-            </text>
-          </g>
-          <g id="编组-14备份" transform="translate(24.394089, 129.829043)">
-            <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
-            <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
-            <text id="19" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="5.41658907" y="20.9589513">19</tspan>
-            </text>
-            <text id="12" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="41.0175743" y="20.9589513">12</tspan>
-            </text>
-            <text id="5" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="80.9816936" y="20.9589513">5</tspan>
-            </text>
-            <text id="19" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
-              fill="#FFFFFF">
-              <tspan x="111.244175" y="20.9589513">19</tspan>
-            </text>
-          </g>
-          <text id="HS" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-            letter-spacing="0.803200028" fill="#FFFFFF">
-            <tspan x="78.0394089" y="179.145925">HS</tspan>
+          <text id="N3电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="1.6" fill="#749DC0">
+            <tspan x="1007.94095" y="32.2090827">N3电网</tspan>
           </text>
-          <ellipse id="椭圆形备份-4" fill="#749DC0" cx="39.884931" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-5" fill="#749DC0" cx="74.9982315" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-6" fill="#749DC0" cx="109.136163" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <ellipse id="椭圆形备份-7" fill="#749DC0" cx="145.224833" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
-          <line x1="39.9359692" y1="37.4906536" x2="39.9359692" y2="129.95236" id="直线-2备份-3" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="75.0492697" y1="37.4906536" x2="75.0492697" y2="129.95236" id="直线-2备份-4" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="109.066502" y1="80.5" x2="109.187201" y2="129.95236" id="直线-2备份-5" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <line x1="145.275871" y1="37.4906536" x2="145.275871" y2="129.95236" id="直线-2备份-6" stroke="#749DC0"
-            stroke-width="1.1247032" stroke-linecap="square" />
-          <path id="直线-3"
-            d="M8.56650246,76.060953 L8.566,80.012 L148.554312,80.0121906 L148.554312,80.9878094 L8.566,80.987 L8.56650246,84.939047 L-0.433497537,80.5 L8.56650246,76.060953 Z"
-            fill="#749DC0" fill-rule="nonzero" />
-        </g>
-        <g id="编组-4" transform="translate(293.551928, 17.983250)" stroke-linecap="square" stroke-width="1.95123759">
-          <line x1="69.0704093" y1="0" x2="69.0704093" y2="465.070735" id="路径" stroke="#028C13" />
-          <path d="M45.9480716,0.00900903775 L45.9480716,466.009009" id="形状" stroke="#2590A9" />
-          <line x1="23.3338215" y1="0" x2="23.3338215" y2="465.070735" id="路径" stroke="#096FAE" />
-          <line x1="0.562351601" y1="0" x2="0.562351601" y2="465.070735" id="路径" stroke="#749DC0" />
-        </g>
-        <g id="编组-4备份"
-          transform="translate(875.690452, 250.483250) scale(-1, 1) translate(-875.690452, -250.483250) translate(855.508353, 17.983250)"
-          stroke-linecap="square" stroke-width="1.95123759">
-          <line x1="39.8018455" y1="0" x2="39.8018455" y2="464.072729" id="路径" stroke="#028C13" />
-          <path d="M26.3725501,0.00900903775 L26.3725501,465.009009" id="形状" stroke="#2590A9" />
-          <line x1="13.5776336" y1="0" x2="13.5776336" y2="464.072729" id="路径" stroke="#096FAE" />
-          <line x1="0.562351601" y1="0" x2="0.562351601" y2="464.072729" id="路径" stroke="#749DC0" />
-        </g>
-        <g id="编组-4备份-2"
-          transform="translate(594.662638, 245.637834) rotate(-90.000000) translate(-594.662638, -245.637834) translate(575.129416, -53.687045)"
-          stroke-width="1.95123759">
-          <line x1="38.2399088" y1="67.2814696" x2="38.6041777" y2="561.82436" id="路径" stroke="#028C13"
-            stroke-linecap="square" />
-          <path
-            d="M25.433324,44.948584 L25.433324,63.4955901 M25.433324,69.3525394 L25.433324,557.431648 M25.8681736,562.995999 L25.8681736,573.580959 M25.8681736,69.6945998 C27.4210647,69.6945998 28.6799316,68.4350368 28.6799316,66.8812872 C28.6799316,65.3275375 27.4210647,64.0679745 25.8681736,64.0679745 M25.8681736,562.777856 C27.4210647,562.777856 28.6799316,561.518293 28.6799316,559.964543 C28.6799316,558.410794 27.4210647,557.151231 25.8681736,557.151231"
-            id="形状" stroke="#2590A9" stroke-linecap="square" />
-          <g id="编组-10" transform="translate(11.809384, 20.899671)" stroke="#096FAE">
-            <path
-              d="M0.940896126,0.621116028 L0.940896126,20.1442804 M0.940896126,26.0012297 L0.940896126,43.5720776 M0.940896126,49.4290269 L0.940896126,535.555819 M0.562351601,543.046462 L0.562351601,550.558976 M0.562351601,556.413436 L0.562351601,566.32369"
-              id="形状" stroke-linecap="square" />
-            <path
-              d="M0.562351601,25.5294462 C2.11524267,25.5294462 3.3741096,24.2698832 3.3741096,22.7161336 C3.3741096,21.1623839 2.11524267,19.9028209 0.562351601,19.9028209"
-              id="路径" />
-            <path
-              d="M0.562351601,541.878185 C2.11524267,541.878185 3.3741096,540.618622 3.3741096,539.064873 C3.3741096,537.511123 2.11524267,536.25156 0.562351601,536.25156"
-              id="路径备份-4" />
-            <path
-              d="M0.562351601,556.358244 C2.11524267,556.358244 3.3741096,555.098681 3.3741096,553.544931 C3.3741096,551.991182 2.11524267,550.731619 0.562351601,550.731619"
-              id="路径备份-5" />
-            <path
-              d="M0.562351601,48.7949291 C2.11524267,48.7949291 3.3741096,47.5353661 3.3741096,45.9816164 C3.3741096,44.4278668 2.11524267,43.1683038 0.562351601,43.1683038"
-              id="路径备份-2" />
+          <text id="N4电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="1.6" fill="#749DC0">
+            <tspan x="1007.94095" y="280.209083">N4电网</tspan>
+          </text>
+          <text id="N2电网" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="1.6" fill="#749DC0">
+            <tspan x="116.940945" y="285.209083">N2电网</tspan>
+          </text>
+          <g id="编组-11" transform="translate(1025.433498, 37.992259)">
+            <path d="M17.5665025,187.390254 L166.79803,187.390254 L166.79803,0 L17.5665025,0 L17.5665025,187.390254 Z"
+              id="Fill-5" stroke-opacity="0.498381501" stroke="#FFFFFF" fill-opacity="0.1" fill="#00A1FF"
+              stroke-dasharray="4" />
+            <g id="编组-14" transform="translate(24.394089, 8.785424)">
+              <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
+              <text id="16" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="5" y="20">16</tspan>
+              </text>
+              <text id="14" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="40" y="20">14</tspan>
+              </text>
+              <text id="9" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="81.1491812" y="20">9</tspan>
+              </text>
+              <text id="23" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="111.298362" y="20">23</tspan>
+              </text>
+            </g>
+            <g id="编组-14备份" transform="translate(24.394089, 129.829043)">
+              <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
+              <text id="30" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="5.41658907" y="20.9589513">30</tspan>
+              </text>
+              <text id="2" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="45.8683931" y="20.9589513">2</tspan>
+              </text>
+              <text id="7" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="80.9816936" y="20.9589513">7</tspan>
+              </text>
+              <text id="25" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="111.244175" y="20.9589513">25</tspan>
+              </text>
+            </g>
+            <text id="HS" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+              letter-spacing="0.803200028" fill="#FFFFFF">
+              <tspan x="78.0394089" y="179.145925">HS</tspan>
+            </text>
+            <ellipse id="椭圆形备份-4" fill="#749DC0" cx="39.884931" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-5" fill="#749DC0" cx="74.9982315" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-6" fill="#749DC0" cx="109.136163" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-7" fill="#749DC0" cx="145.224833" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <line x1="39.9359692" y1="37.4906536" x2="39.9359692" y2="129.95236" id="直线-2备份-3" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="75.0492697" y1="37.4906536" x2="75.0492697" y2="129.95236" id="直线-2备份-4" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="109.187201" y1="37.4906536" x2="109.187201" y2="129.95236" id="直线-2备份-5" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="145.275871" y1="37.4906536" x2="145.275871" y2="129.95236" id="直线-2备份-6" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <path id="直线-3"
+              d="M8.56650246,76.060953 L8.566,80.012 L148.554312,80.0121906 L148.554312,80.9878094 L8.566,80.987 L8.56650246,84.939047 L-0.433497537,80.5 L8.56650246,76.060953 Z"
+              fill="#749DC0" fill-rule="nonzero" />
           </g>
-          <g id="编组-9" stroke="#749DC0">
-            <line x1="0.562351601" y1="0" x2="0.555044834" y2="19.0803912" id="路径" stroke-linecap="square" />
-            <line x1="0.555044834" y1="23.9611823" x2="0.562351601" y2="41.6400082" id="路径备份-8"
-              stroke-linecap="square" />
-            <line x1="0.555044834" y1="48.3651378" x2="0.555044834" y2="63.007511" id="路径备份-9"
-              stroke-linecap="square" />
-            <line x1="0.562351601" y1="70.3286977" x2="0.555044834" y2="556.575255" id="路径备份-10"
+          <g id="编组-11" transform="translate(1025.433498, 286.992259)">
+            <path d="M17.5665025,187.390254 L166.79803,187.390254 L166.79803,0 L17.5665025,0 L17.5665025,187.390254 Z"
+              id="Fill-5" stroke-opacity="0.498381501" stroke="#FFFFFF" fill-opacity="0.1" fill="#00A1FF"
+              stroke-dasharray="4" />
+            <g id="编组-14" transform="translate(24.394089, 8.785424)">
+              <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
+              <text id="28" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="5" y="20">28</tspan>
+              </text>
+              <text id="10" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="40" y="20">10</tspan>
+              </text>
+              <text id="21" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="111.298362" y="20">21</tspan>
+              </text>
+            </g>
+            <g id="编组-14备份" transform="translate(24.394089, 129.829043)">
+              <rect id="矩形备份-6" stroke="#749DC0" x="0.5" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="35.6133005" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="70.726601" y="0.5" width="30.2118227" height="27.3085883" />
+              <rect id="矩形备份-6" stroke="#749DC0" x="105.839901" y="0.5" width="30.2118227" height="27.3085883" />
+              <text id="19" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="5.41658907" y="20.9589513">19</tspan>
+              </text>
+              <text id="12" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="41.0175743" y="20.9589513">12</tspan>
+              </text>
+              <text id="5" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="80.9816936" y="20.9589513">5</tspan>
+              </text>
+              <text id="19" font-family="ArialMT, Arial" font-size="16" font-weight="normal" letter-spacing="0.803200028"
+                fill="#FFFFFF">
+                <tspan x="111.244175" y="20.9589513">19</tspan>
+              </text>
+            </g>
+            <text id="HS" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+              letter-spacing="0.803200028" fill="#FFFFFF">
+              <tspan x="78.0394089" y="179.145925">HS</tspan>
+            </text>
+            <ellipse id="椭圆形备份-4" fill="#749DC0" cx="39.884931" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-5" fill="#749DC0" cx="74.9982315" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-6" fill="#749DC0" cx="109.136163" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <ellipse id="椭圆形备份-7" fill="#749DC0" cx="145.224833" cy="80.9059701" rx="2.81103942" ry="2.81331264" />
+            <line x1="39.9359692" y1="37.4906536" x2="39.9359692" y2="129.95236" id="直线-2备份-3" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="75.0492697" y1="37.4906536" x2="75.0492697" y2="129.95236" id="直线-2备份-4" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="109.066502" y1="80.5" x2="109.187201" y2="129.95236" id="直线-2备份-5" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <line x1="145.275871" y1="37.4906536" x2="145.275871" y2="129.95236" id="直线-2备份-6" stroke="#749DC0"
+              stroke-width="1.1247032" stroke-linecap="square" />
+            <path id="直线-3"
+              d="M8.56650246,76.060953 L8.566,80.012 L148.554312,80.0121906 L148.554312,80.9878094 L8.566,80.987 L8.56650246,84.939047 L-0.433497537,80.5 L8.56650246,76.060953 Z"
+              fill="#749DC0" fill-rule="nonzero" />
+          </g>
+          <g id="编组-4" transform="translate(293.551928, 17.983250)" stroke-linecap="square" stroke-width="1.95123759">
+            <line x1="69.0704093" y1="0" x2="69.0704093" y2="465.070735" id="路径" stroke="#028C13" />
+            <path d="M45.9480716,0.00900903775 L45.9480716,466.009009" id="形状" stroke="#2590A9" />
+            <line x1="23.3338215" y1="0" x2="23.3338215" y2="465.070735" id="路径" stroke="#096FAE" />
+            <line x1="0.562351601" y1="0" x2="0.562351601" y2="465.070735" id="路径" stroke="#749DC0" />
+          </g>
+          <g id="编组-4备份"
+            transform="translate(875.690452, 250.483250) scale(-1, 1) translate(-875.690452, -250.483250) translate(855.508353, 17.983250)"
+            stroke-linecap="square" stroke-width="1.95123759">
+            <line x1="39.8018455" y1="0" x2="39.8018455" y2="464.072729" id="路径" stroke="#028C13" />
+            <path d="M26.3725501,0.00900903775 L26.3725501,465.009009" id="形状" stroke="#2590A9" />
+            <line x1="13.5776336" y1="0" x2="13.5776336" y2="464.072729" id="路径" stroke="#096FAE" />
+            <line x1="0.562351601" y1="0" x2="0.562351601" y2="464.072729" id="路径" stroke="#749DC0" />
+          </g>
+          <g id="编组-4备份-2"
+            transform="translate(594.662638, 245.637834) rotate(-90.000000) translate(-594.662638, -245.637834) translate(575.129416, -53.687045)"
+            stroke-width="1.95123759">
+            <line x1="38.2399088" y1="67.2814696" x2="38.6041777" y2="561.82436" id="路径" stroke="#028C13"
               stroke-linecap="square" />
             <path
-              d="M0,562.20188 C1.55289107,562.20188 2.811758,560.942317 2.811758,559.388568 C2.811758,557.834818 1.55289107,556.575255 0,556.575255"
-              id="路径" />
-            <path
-              d="M0,575.705781 C1.55289107,575.705781 2.811758,574.446218 2.811758,572.892468 C2.811758,571.338719 1.55289107,570.079156 0,570.079156"
-              id="路径备份-11" />
-            <path
-              d="M0,589.209682 C1.55289107,589.209682 2.811758,587.950119 2.811758,586.396369 C2.811758,584.842619 1.55289107,583.583056 0,583.583056"
-              id="路径备份-12" />
-            <line x1="0.562351601" y1="562.20188" x2="0.562351601" y2="569.678973" id="直线-4" stroke-linecap="square" />
-            <line x1="0.562351601" y1="575.705781" x2="0.562351601" y2="583.182874" id="直线-4备份"
-              stroke-linecap="square" />
-            <path d="M0.562351601,589.209682 C0.562351601,595.503065 0.562351601,598.649757 0.562351601,598.649757"
-              id="直线-4备份-2" stroke-linecap="square" />
-            <path
-              d="M0,24.2889592 C1.55289107,24.2889592 2.811758,23.0293962 2.811758,21.4756465 C2.811758,19.9218968 1.55289107,18.6623339 0,18.6623339"
-              id="路径" />
-            <path
-              d="M0,47.4052752 C1.55289107,47.4052752 2.811758,46.1457122 2.811758,44.5919625 C2.811758,43.0382129 1.55289107,41.7786499 0,41.7786499"
-              id="路径备份-6" />
-            <path
-              d="M0,69.6945998 C1.55289107,69.6945998 2.811758,68.4350368 2.811758,66.8812872 C2.811758,65.3275375 1.55289107,64.0679745 0,64.0679745"
-              id="路径备份-7" />
+              d="M25.433324,44.948584 L25.433324,63.4955901 M25.433324,69.3525394 L25.433324,557.431648 M25.8681736,562.995999 L25.8681736,573.580959 M25.8681736,69.6945998 C27.4210647,69.6945998 28.6799316,68.4350368 28.6799316,66.8812872 C28.6799316,65.3275375 27.4210647,64.0679745 25.8681736,64.0679745 M25.8681736,562.777856 C27.4210647,562.777856 28.6799316,561.518293 28.6799316,559.964543 C28.6799316,558.410794 27.4210647,557.151231 25.8681736,557.151231"
+              id="形状" stroke="#2590A9" stroke-linecap="square" />
+            <g id="编组-10" transform="translate(11.809384, 20.899671)" stroke="#096FAE">
+              <path
+                d="M0.940896126,0.621116028 L0.940896126,20.1442804 M0.940896126,26.0012297 L0.940896126,43.5720776 M0.940896126,49.4290269 L0.940896126,535.555819 M0.562351601,543.046462 L0.562351601,550.558976 M0.562351601,556.413436 L0.562351601,566.32369"
+                id="形状" stroke-linecap="square" />
+              <path
+                d="M0.562351601,25.5294462 C2.11524267,25.5294462 3.3741096,24.2698832 3.3741096,22.7161336 C3.3741096,21.1623839 2.11524267,19.9028209 0.562351601,19.9028209"
+                id="路径" />
+              <path
+                d="M0.562351601,541.878185 C2.11524267,541.878185 3.3741096,540.618622 3.3741096,539.064873 C3.3741096,537.511123 2.11524267,536.25156 0.562351601,536.25156"
+                id="路径备份-4" />
+              <path
+                d="M0.562351601,556.358244 C2.11524267,556.358244 3.3741096,555.098681 3.3741096,553.544931 C3.3741096,551.991182 2.11524267,550.731619 0.562351601,550.731619"
+                id="路径备份-5" />
+              <path
+                d="M0.562351601,48.7949291 C2.11524267,48.7949291 3.3741096,47.5353661 3.3741096,45.9816164 C3.3741096,44.4278668 2.11524267,43.1683038 0.562351601,43.1683038"
+                id="路径备份-2" />
+            </g>
+            <g id="编组-9" stroke="#749DC0">
+              <line x1="0.562351601" y1="0" x2="0.555044834" y2="19.0803912" id="路径" stroke-linecap="square" />
+              <line x1="0.555044834" y1="23.9611823" x2="0.562351601" y2="41.6400082" id="路径备份-8"
+                stroke-linecap="square" />
+              <line x1="0.555044834" y1="48.3651378" x2="0.555044834" y2="63.007511" id="路径备份-9"
+                stroke-linecap="square" />
+              <line x1="0.562351601" y1="70.3286977" x2="0.555044834" y2="556.575255" id="路径备份-10"
+                stroke-linecap="square" />
+              <path
+                d="M0,562.20188 C1.55289107,562.20188 2.811758,560.942317 2.811758,559.388568 C2.811758,557.834818 1.55289107,556.575255 0,556.575255"
+                id="路径" />
+              <path
+                d="M0,575.705781 C1.55289107,575.705781 2.811758,574.446218 2.811758,572.892468 C2.811758,571.338719 1.55289107,570.079156 0,570.079156"
+                id="路径备份-11" />
+              <path
+                d="M0,589.209682 C1.55289107,589.209682 2.811758,587.950119 2.811758,586.396369 C2.811758,584.842619 1.55289107,583.583056 0,583.583056"
+                id="路径备份-12" />
+              <line x1="0.562351601" y1="562.20188" x2="0.562351601" y2="569.678973" id="直线-4" stroke-linecap="square" />
+              <line x1="0.562351601" y1="575.705781" x2="0.562351601" y2="583.182874" id="直线-4备份"
+                stroke-linecap="square" />
+              <path d="M0.562351601,589.209682 C0.562351601,595.503065 0.562351601,598.649757 0.562351601,598.649757"
+                id="直线-4备份-2" stroke-linecap="square" />
+              <path
+                d="M0,24.2889592 C1.55289107,24.2889592 2.811758,23.0293962 2.811758,21.4756465 C2.811758,19.9218968 1.55289107,18.6623339 0,18.6623339"
+                id="路径" />
+              <path
+                d="M0,47.4052752 C1.55289107,47.4052752 2.811758,46.1457122 2.811758,44.5919625 C2.811758,43.0382129 1.55289107,41.7786499 0,41.7786499"
+                id="路径备份-6" />
+              <path
+                d="M0,69.6945998 C1.55289107,69.6945998 2.811758,68.4350368 2.811758,66.8812872 C2.811758,65.3275375 1.55289107,64.0679745 0,64.0679745"
+                id="路径备份-7" />
+            </g>
           </g>
+          <text id="N1" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="0.553086376" fill="#028C13">
+            <tspan x="354.945335" y="17">N1</tspan>
+          </text>
+          <text id="N2" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="0.553086376" fill="#2590A9">
+            <tspan x="328.863378" y="17">N2</tspan>
+          </text>
+          <text id="N3" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="0.553086376" fill="#096FAE">
+            <tspan x="305.632335" y="17">N3</tspan>
+          </text>
+          <text id="N4" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
+            letter-spacing="0.553086424" fill="#749DC0">
+            <tspan x="281.525996" y="17">N4</tspan>
+          </text>
         </g>
-        <text id="N1" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="0.553086376" fill="#028C13">
-          <tspan x="354.945335" y="17">N1</tspan>
-        </text>
-        <text id="N2" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="0.553086376" fill="#2590A9">
-          <tspan x="328.863378" y="17">N2</tspan>
-        </text>
-        <text id="N3" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="0.553086376" fill="#096FAE">
-          <tspan x="305.632335" y="17">N3</tspan>
-        </text>
-        <text id="N4" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal"
-          letter-spacing="0.553086424" fill="#749DC0">
-          <tspan x="281.525996" y="17">N4</tspan>
-        </text>
       </g>
     </g>
-  </g>
-  <!-- 曲线框图 -->
-  <g>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="40px"
-      y="733px"></rect>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="656px"
-      y="733px"></rect>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="1271px"
-      y="733px"></rect>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="40px"
-      y="891px"></rect>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="656px"
-      y="891px"></rect>
-    <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="1271px"
-      y="891px"></rect>
-  </g>
-  <foreignObject width="100%" height="100%">
-    <div class="SpeedStyle0">
-      <batt11 :total_volt="x_array1.total_volt_array" />
-    </div>
-    <div class="SpeedStyle1">
-      <batt12 :current="x_array1.current_array" />
-    </div>
-    <div class="SpeedStyle2">
-      <batt13 :max_temp="x_array1.max_temp_array" />
-      <!-- 最高温度 -->
-    </div>
-    <div class="SpeedStyle11">
-      <batt14 :soc="x_array1.soc_array" />
-      <!-- 总电量 -->
-    </div>
-    <div class="SpeedStyle21">
-      <batt15 :max_volt="x_array1.max_volt_array" />
-      <!-- 总电压 -->
-    </div>
-    <div class="SpeedStyle31">
-      <batt16 :min_volt="x_array1.min_volt_array" />
-      <!-- 总电压 -->
-    </div>
-  </foreignObject>
-</svg></template>
+    <!-- 曲线框图 -->
+    <g>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="40px"
+        y="733px"></rect>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="656px"
+        y="733px"></rect>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="1271px"
+        y="733px"></rect>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="40px"
+        y="891px"></rect>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="656px"
+        y="891px"></rect>
+      <rect stroke="#00A1FF" stroke-width="1" fill="none" fill-rule="evenodd" width="591px" height="150px" x="1271px"
+        y="891px"></rect>
+    </g>
+    <foreignObject width="100%" height="100%">
+      <div class="SpeedStyle0">
+        <batt11 :total_volt="x_array1.total_volt_array" />
+      </div>
+      <div class="SpeedStyle1">
+        <batt12 :current="x_array1.current_array" />
+      </div>
+      <div class="SpeedStyle2">
+        <batt13 :max_temp="x_array1.max_temp_array" />
+        <!-- 最高温度 -->
+      </div>
+      <div class="SpeedStyle11">
+        <batt14 :soc="x_array1.soc_array" />
+        <!-- 总电量 -->
+      </div>
+      <div class="SpeedStyle21">
+        <batt15 :max_volt="x_array1.max_volt_array" />
+        <!-- 总电压 -->
+      </div>
+      <div class="SpeedStyle31">
+        <batt16 :min_volt="x_array1.min_volt_array" />
+        <!-- 总电压 -->
+      </div>
+    </foreignObject>
+  </svg>
+</template>
 
-<style scoped>.backG {
+<style scoped>
+.backG {
   z-index: -100;
   background: #000;
   width: 1920px;
@@ -1816,4 +1799,5 @@ export default defineComponent({
   position: absolute;
   top: 575px;
   left: 1150px;
-}</style>
+}
+</style>
