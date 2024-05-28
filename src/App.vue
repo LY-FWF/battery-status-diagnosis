@@ -88,7 +88,7 @@ export default defineComponent({
     }
     const addTime = (num) => {
       var curTime = new Date()
-      console.log(curTime)
+      // console.log(curTime)
       var addSeconds = new Date(curTime.setSeconds(curTime.getSeconds() + num));
       return addSeconds
     }
@@ -103,14 +103,14 @@ export default defineComponent({
       var date = timeObj.getDate();
       var time = timeObj.toTimeString().split(" ")[0];
       str = time;
-      console.log("------当前日期：" + str);
+      // console.log("------当前日期：" + str);
       return str;
     }
     const replaceObject = (newObject, oldObject) => {
       for (let key in oldObject) {
         newObject[key] = oldObject[key]
       }
-      console.log(newObject)
+      // console.log(newObject)
     }
 
     const colorSig = (sig) => {
@@ -145,26 +145,27 @@ export default defineComponent({
       worker.onmessage = (event) => {
         const message = event.data;
         // 在这里处理接收到的消息
-        x_base.symple = message.substr(10, 2)//获取蓄电池报文的标志位字符串，04（440）  09（24）
+        const messageData = JSON.parse(message)
+        x_base.symple = messageData.substr(10, 2)//获取蓄电池报文的标志位字符串，04（440）  09（24）
         switch (x_base.symple) {
           case "04":
             x_base.msg_440_sum = x_base.msg_440_sum + 1; //计算报文总数
-            x_base.data_valid_440 = function3.hexto10(data.substr(48, 2))//获取440V报文有效位并转换为十进制
+            x_base.data_valid_440 = function3.hexto10(messageData.substr(48, 2))//获取440V报文有效位并转换为十进制
 
-            var batt1_440_port1canid = (function3.hexto10(data.substr(50, 2))) * 256 + function3.hexto10(data.substr(52, 2))
-            var batt1_440_port2canid = (function3.hexto10(data.substr(210, 2))) * 256 + function3.hexto10(data.substr(212, 2))
-            var batt2_440_port1canid = (function3.hexto10(data.substr(90, 2))) * 256 + function3.hexto10(data.substr(92, 2))
-            var batt2_440_port2canid = (function3.hexto10(data.substr(250, 2))) * 256 + function3.hexto10(data.substr(252, 2))
-            var batt3_440_port1canid = (function3.hexto10(data.substr(130, 2))) * 256 + function3.hexto10(data.substr(132, 2))
-            var batt3_440_port2canid = (function3.hexto10(data.substr(290, 2))) * 256 + function3.hexto10(data.substr(292, 2))
-            var batt4_440_port1canid = (function3.hexto10(data.substr(170, 2))) * 256 + function3.hexto10(data.substr(172, 2))
-            var batt4_440_port2canid = (function3.hexto10(data.substr(330, 2))) * 256 + function3.hexto10(data.substr(332, 2))
+            var batt1_440_port1canid = (function3.hexto10(messageData.substr(50, 2))) * 256 + function3.hexto10(messageData.substr(52, 2))
+            var batt1_440_port2canid = (function3.hexto10(messageData.substr(210, 2))) * 256 + function3.hexto10(messageData.substr(212, 2))
+            var batt2_440_port1canid = (function3.hexto10(messageData.substr(90, 2))) * 256 + function3.hexto10(messageData.substr(92, 2))
+            var batt2_440_port2canid = (function3.hexto10(messageData.substr(250, 2))) * 256 + function3.hexto10(messageData.substr(252, 2))
+            var batt3_440_port1canid = (function3.hexto10(messageData.substr(130, 2))) * 256 + function3.hexto10(messageData.substr(132, 2))
+            var batt3_440_port2canid = (function3.hexto10(messageData.substr(290, 2))) * 256 + function3.hexto10(messageData.substr(292, 2))
+            var batt4_440_port1canid = (function3.hexto10(messageData.substr(170, 2))) * 256 + function3.hexto10(messageData.substr(172, 2))
+            var batt4_440_port2canid = (function3.hexto10(messageData.substr(330, 2))) * 256 + function3.hexto10(messageData.substr(332, 2))
             if (batt1_440_port1canid != 0) {
-              var batt1_port1 = analysisBatt(50, data)
+              var batt1_port1 = analysisBatt(50, messageData)
               replaceObject(x_Batt1_440, batt1_port1)
             }
             else if (batt1_440_port2canid != 0) {
-              var batt1_port2 = analysisBatt(210, data)
+              var batt1_port2 = analysisBatt(210, messageData)
               replaceObject(x_Batt1_440, batt1_port2)
             }
             else {
@@ -172,11 +173,11 @@ export default defineComponent({
             }
 
             if (batt2_440_port1canid != 0) {
-              var batt2_port1 = analysisBatt(90, data)
+              var batt2_port1 = analysisBatt(90, messageData)
               replaceObject(x_Batt2_440, batt2_port1)
             }
             else if (batt2_440_port2canid != 0) {
-              var batt2_port2 = analysisBatt(250, data)
+              var batt2_port2 = analysisBatt(250, messageData)
               replaceObject(x_Batt2_440, batt2_port2)
             }
             else {
@@ -189,17 +190,16 @@ export default defineComponent({
               x_array1.max_temp_array = [formatDate(), x_Batt1_440.max_temp, x_Batt2_440.max_temp]
               x_array1.min_volt_array = [formatDate(), x_Batt1_440.min_temp, x_Batt2_440.min_temp]
               x_array1.soc_array = [formatDate(), x_Batt1_440.soc, x_Batt2_440.soc]
-              console.log("%%%%%%%%%%%%%")
-              console.log(x_array1.max_temp_array)
+              // console.log(x_array1.max_temp_array)
               flag = timeToString(addTime(1))
             }
 
             if (batt3_440_port1canid != 0) {
-              var batt3_port1 = analysisBatt(130, data)
+              var batt3_port1 = analysisBatt(130, messageData)
               replaceObject(x_Batt3_440, batt3_port1)
             }
             else if (batt3_440_port2canid != 0) {
-              var batt3_port2 = analysisBatt(290, data)
+              var batt3_port2 = analysisBatt(290, messageData)
               replaceObject(x_Batt3_440, batt3_port2)
             }
             else {
@@ -207,11 +207,11 @@ export default defineComponent({
             }
 
             if (batt4_440_port1canid != 0) {
-              var batt3_port1 = analysisBatt(170, data)
+              var batt3_port1 = analysisBatt(170, messageData)
               replaceObject(x_Batt4_440, batt3_port1)
             }
             else if (batt4_440_port2canid != 0) {
-              var batt4_port2 = analysisBatt(330, data)
+              var batt4_port2 = analysisBatt(330, messageData)
               replaceObject(x_Batt4_440, batt4_port2)
             }
             else {
@@ -221,10 +221,10 @@ export default defineComponent({
             break;
           case "09":
             x_base.msg_24_sum = x_base.msg_24_sum + 1; //计算报文总数
-            var batt1_24_canid = (function3.hexto10(data.substr(50, 2))) * 256 + function3.hexto10(data.substr(52, 2))
-            var batt2_24_canid = (function3.hexto10(data.substr(90, 2))) * 256 + function3.hexto10(data.substr(92, 2))
+            var batt1_24_canid = (function3.hexto10(messageData.substr(50, 2))) * 256 + function3.hexto10(messageData.substr(52, 2))
+            var batt2_24_canid = (function3.hexto10(messageData.substr(90, 2))) * 256 + function3.hexto10(messageData.substr(92, 2))
             if (batt1_24_canid != 0) {
-              var batt1_24 = analysisBatt(50, data)
+              var batt1_24 = analysisBatt(50, messageData)
               replaceObject(x_Batt1_24, batt1_24)
             }
             else {
@@ -232,7 +232,7 @@ export default defineComponent({
             }
 
             if (batt2_24_canid != 0) {
-              var batt2_24 = analysisBatt(90, data)
+              var batt2_24 = analysisBatt(90, messageData)
               replaceObject(x_Batt2_24, batt2_24)
             }
             else {

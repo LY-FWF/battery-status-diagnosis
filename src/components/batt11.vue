@@ -218,7 +218,7 @@ export default {
     const Handle_data =(newv)=>{
       if(datasource.data)
       datasource.data.push([formatDate(),newv.total_volt])
-      console.log(datasource.data)
+      // console.log(datasource.data)
       state.options.dataZoom[0].start =100-(16/state.options.dataset.source.length)*100
     }
 
@@ -232,7 +232,7 @@ export default {
                 if (timer11) {
                     clearTimeout(timer11)
                     timer11 = null
-                    console.log("清除定时器")
+                    // console.log("清除定时器")
                 }
                 //不然就创建新的定时器
                 timer11 = setTimeout(()=>{
@@ -253,7 +253,7 @@ export default {
     // },1000)
 
     onMounted(() => {
-      console.log(echarts)
+      // console.log(echarts)
       myChart = echarts.init(document.querySelector(".speed11"));
       // 绘制图表
         

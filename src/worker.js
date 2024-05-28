@@ -9,6 +9,35 @@ self.onmessage = function (event) {
   connectWebSocket();
 };
 
+async function blobToHexstring(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      if (this.result instanceof ArrayBuffer) {
+        const byteArray = new Uint8Array(this.result);
+        const hexString = Array.from(byteArray).map(byte => byte.toString(16).padStart(2, '0')).join('');
+        resolve(hexString);
+      } else {
+        reject(new Error('Invalid result type'));
+      }
+
+    };
+    reader.onerror = reject
+    reader.readAsArrayBuffer(blob);
+  })
+}
+
+// 使用示例
+async function handleBlobData(blob) {
+  try {
+    const hexString = await blobToHexstring(blob);
+    const processedData = handleReceivedData(hexString);
+    postMessage(processedData);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // 建立 WebSocket 连接
 function connectWebSocket() {
   socket = new WebSocket(websocketUrl);
@@ -20,8 +49,9 @@ function connectWebSocket() {
 
   // 处理 WebSocket 接收到的消息
   socket.onmessage = function (event) {
-    const processedData = handleReceivedData(event.data);
-    postMessage(processedData);
+    // const processedData = handleReceivedData(event.data);
+    // postMessage(processedData);
+    handleBlobData(event.data)
   };
 
   // 处理 WebSocket 关闭事件
