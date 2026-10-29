@@ -34,7 +34,7 @@ async function handleBlobData(blob) {
     const processedData = handleReceivedData(hexString);
     postMessage(processedData);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 }
 
@@ -63,7 +63,7 @@ function connectWebSocket() {
 
   // 处理 WebSocket 错误事件
   socket.onerror = function (error) {
-    console.error("WebSocket 错误:", error);
+    // console.error("WebSocket 错误:", error);
     // 出错后重新连接
     setTimeout(connectWebSocket, 2000);
   };

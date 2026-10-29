@@ -67,7 +67,7 @@ export default {
               color:"#ffffff",
               fontSize:10,
             },
-            left:'18%',
+            left:'68%',
             top:0,
             orient:"horizontal",
             pageButtonPosition:'end',
@@ -77,7 +77,7 @@ export default {
               fontSize:12,
             },
             pageIconColor:'#ffffff',
-            data:["440V-0"]
+            data:["440V-0","440V-1"]
           },
           ],
           grid:{
@@ -141,7 +141,7 @@ export default {
             offset: -5, //向左偏移10px
             // min: 0, //最小值
             // max: 30, //最大值
-            name:"电流",
+            name:"电流(A)",
             namelocation:"end",
             nameGap:10,
             nameTextStyle:{
@@ -183,6 +183,17 @@ export default {
             yAxisIndex:0,
             smooth: true, //折线图是否平滑
           },
+          
+          {
+            name: "440V-1",
+            type: "line", //图表类型，折线图
+            label:{
+              show:false,
+            },
+            symbol:"rect",
+            datasetIndex:0,
+            smooth: true, //折线图是否平滑
+           },
         ],
       },
     });
@@ -212,7 +223,7 @@ export default {
                 }, 800)
    }
     watch(()=>current,()=>{
-            if(datasource.data.length<500){
+            if(datasource.data.length<100){
               datasource.data.push([current.value[0],current.value[1],current.value[2]])
             }else{
               datasource.data.shift()

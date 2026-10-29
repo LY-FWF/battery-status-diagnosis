@@ -67,7 +67,7 @@ export default {
               color:"#ffffff",
               fontSize:10,
             },
-            left:'18%',
+            left:'68%',
             top:0,
             orient:"horizontal",
             pageButtonPosition:'end',
@@ -141,7 +141,7 @@ export default {
             offset: -5, //向左偏移10px
             // min: 0, //最小值
             // max: 30, //最大值
-            name:"单体最高电压",
+            name:"单体最高电压(V)",
             namelocation:"end",
             nameGap:10,
             nameTextStyle:{
@@ -221,7 +221,7 @@ export default {
                 }, 1000)
    }
     watch(()=>max_volt,()=>{
-             if(datasource.data.length<500){
+             if(datasource.data.length<100){
               datasource.data.push([max_volt.value[0],max_volt.value[1],max_volt.value[2]])
             }else{
               datasource.data.shift()

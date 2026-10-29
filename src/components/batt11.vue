@@ -66,7 +66,7 @@ export default {
               color:"#ffffff",
               fontSize:10,
             },
-            left:'18%',
+            left:'68%',
             top:0,
             orient:"horizontal",
             pageButtonPosition:'end',
@@ -140,7 +140,7 @@ export default {
             offset: -5, //向左偏移10px
             // min: 0, //最小值
             // max: 30, //最大值
-            name:"总电压",
+            name:"总电压(V)",
             namelocation:"end",
             nameGap:10,
             nameTextStyle:{
@@ -240,7 +240,7 @@ export default {
                 }, 800)
    }
     watch(()=>total_volt,()=>{
-            if(datasource.data.length<500){
+            if(datasource.data.length<100){
               datasource.data.push([total_volt.value[0],total_volt.value[1],total_volt.value[2]])
             }else{
               datasource.data.shift()
